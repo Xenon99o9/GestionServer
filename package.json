@@ -1,0 +1,40 @@
+{
+  "name": "gestionserver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:electron": "npm run build && NODE_ENV=production electron .",
+    "build": "npm run build --prefix frontend",
+    "build:electron": "npm run build && electron-builder --config",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.gestionserver.app",
+    "productName": "GestionServer",
+    "files": [
+      "electron/**/*",
+      "backend/**/*",
+      "frontend/dist/**/*"
+    ],
+    "linux": {
+      "target": ["AppImage", "pacman"],
+      "category": "Game"
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3"
+  }
+}
