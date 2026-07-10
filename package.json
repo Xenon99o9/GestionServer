@@ -1,6 +1,9 @@
 {
   "name": "gestionserver",
   "version": "1.0.0",
+  "description": "Application de gestion de serveurs Minecraft",
+  "author": "Xenon99o9 ",
+  "desktopName": "GestionServer",
   "private": true,
   "type": "module",
   "main": "electron/main.js",
