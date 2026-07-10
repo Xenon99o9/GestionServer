@@ -45,6 +45,8 @@ npm install
 npm run build:electron
 ```
 
+`npm install` installe automatiquement les dépendances du backend, du frontend et d'Electron. Le build produit l'exécutable dans le dossier `dist/`.
+
 ## Développement
 
 ```bash
@@ -69,15 +71,16 @@ GestionServer/
 │   │   ├── config.js         # Configuration
 │   │   ├── scanner.js        # Scan des serveurs locaux
 │   │   ├── server-manager.js # Démarrage/arrêt des serveurs
-│   │   ├── server-creator.js # Création de serveurs
+│   │   ├── server-creator.js # Création de serveurs (Vanilla, Paper, Forge, Fabric)
 │   │   ├── server-updater.js # Mise à jour de serveurs
 │   │   ├── trash-manager.js  # Gestion de la corbeille
 │   │   ├── backup.js         # Sauvegardes et rollback
 │   │   ├── rcon-client.js    # Connexion RCON
 │   │   ├── log-watcher.js    # Surveillance des logs
 │   │   ├── stats-collector.js# Stats CPU/RAM
-│   │   ├── mod-manager.js    # Gestion des mods Modrinth
+│   │   ├── mod-manager.js    # Gestion des mods (Modrinth)
 │   │   └── remote-*.js       # Gestion des serveurs distants (SSH)
+│   ├── templates/            # Jars téléchargés à la demande
 │   └── package.json
 ├── frontend/
 │   └── src/
@@ -87,37 +90,14 @@ GestionServer/
 ├── electron/
 │   ├── main.js               # Process principal Electron
 │   └── preload.js            # Bridge de sécurité
-└── package.json
+└── package.json              # Scripts + config electron-builder
 ```
-
-## Configuration
-
-### Serveur distant
-
-Ajoutez une machine distante dans l'onglet "Machines distantes" de l'application, ou modifiez directement `backend/remotes.json` :
-
-```json
-{
-  "name": "raspberry",
-  "host": "192.168.1.101",
-  "port": 22,
-  "username": "xenon99o9",
-  "password": "motdepasse",
-  "directory": "/home/xenon99o9/minecraft"
-}
-```
-
-### Dossiers locaux
-
-Par défaut, les serveurs sont créés dans le dossier courant. Vous pouvez ajouter des dossiers personnalisés depuis les paramètres de l'application.
 
 ## Technologies
 
-- **Backend** — Node.js, Express, Socket.IO
+- **Backend** — Node.js, Express, Socket.IO, node-ssh
 - **Frontend** — React 19, Vite, Tailwind CSS, Recharts
 - **Desktop** — Electron
-- **SSH** — node-ssh
-- **RCON** — rcon-client
 - **Mods** — Modrinth API
 
 ## Licence

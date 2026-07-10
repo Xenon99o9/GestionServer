@@ -2,7 +2,7 @@
   "name": "gestionserver",
   "version": "1.0.0",
   "description": "Application de gestion de serveurs Minecraft",
-  "author": "Xenon99o9 ",
+  "author": "Xenon99o9 <liampaulus244@gmail.com>",
   "desktopName": "GestionServer",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
     "dev:electron": "npm run build && NODE_ENV=production electron .",
     "build": "npm run build --prefix frontend",
     "build:electron": "npm run build && electron-builder --config",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "npm install --prefix frontend && electron-builder install-app-deps"
   },
   "build": {
     "appId": "com.gestionserver.app",

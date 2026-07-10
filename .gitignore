@@ -2,4 +2,10 @@ node_modules
 dist
 backend/backups
 backend/templates/*.jar
+backend/remotes.json
+backend/.env
+backend/local-dirs.json
+backend/trash/trash.json
 *.zip
+.DS_Store
+Thumbs.db
